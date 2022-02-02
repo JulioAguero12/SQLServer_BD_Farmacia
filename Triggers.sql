@@ -92,7 +92,7 @@ BEGIN
   IF INSERTING THEN
     UPDATE STOCK
     SET Stock_cant = Stock_cant - :NEW.LineaVenta_cantidadV
-    WHERE Medicam_nombre = :NEW.Medicam_nombre and Compania_ssn = :NEW.Compania_ssn;  --faltarÌa el farmacia_ssn, pero LineaVenta no est· relacionado con farmacia
+    WHERE Medicam_nombre = :NEW.Medicam_nombre and Compania_ssn = :NEW.Compania_ssn;  --faltar√≠a el farmacia_ssn, pero LineaVenta no est√° relacionado con farmacia
   ELSIF DELETING THEN
     UPDATE STOCK
     SET Stock_cant = Stock_cant + :OLD.LineaVenta_cantidadV
