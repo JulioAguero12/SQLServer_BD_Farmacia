@@ -1,0 +1,7 @@
+SET IDENTITY_INSERT dbo.farmacia ON;
+INSERT INTO Farmacia(Farmacia_ssn,Farmacia_nombre,Farmacia_direccion,Farmacia_telefono) VALUES (2,'JuanY','Av FPerri',8152);
+SET IDENTITY_INSERT dbo.farmacia OFF;
+
+Se debe especificar un valor explícito para la columna de identidad en la tabla 'Farmacia' 
+cuando IDENTITY_INSERT se establece en ON o cuando un usuario de replicación está insertando en 
+una columna de identidad NO PARA REPLICACIÓN. 
