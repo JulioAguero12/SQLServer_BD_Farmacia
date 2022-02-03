@@ -1,15 +1,15 @@
 -- MEDICO
 EXEC dbo.addMedico 'Filino de Cos', 'Neurologia',5;
 EXEC dbo.addMedico 'Calcideo', 'Traumatologia',4;
-EXEC dbo.addMedico 'Calímaco', 'Neurologia',7;
+EXEC dbo.addMedico 'CalÃ­maco', 'Neurologia',7;
 EXEC dbo.addMedico 'Cares de Atenas', 'Neumologia',8;
-EXEC dbo.addMedico 'Fainarate', 'Odontología',2;
+EXEC dbo.addMedico 'Fainarate', 'OdontologÃ­a',2;
 EXEC dbo.addMedico 'Hercules', 'Psicologia',3;
 
---Si el medico con id 6 quiere cambiar su especialidad y actualizar sus años de experiencia
-EXEC dbo.ModifyMedico 6,'Odontología',12;
+--Si el medico con id 6 quiere cambiar su especialidad y actualizar sus aÃ±os de experiencia
+EXEC dbo.ModifyMedico 6,'OdontologÃ­a',12;
 --Medico con id erroneo
-EXEC dbo.ModifyMedico 100,'Odontología',12;
+EXEC dbo.ModifyMedico 100,'OdontologÃ­a',12;
 
 --Eliminar medico con id 6
 EXEC dbo.DeleteMedico 6;
@@ -26,7 +26,7 @@ EXEC dbo.AddPaciente 2,'JuaN Gonzales',14,'Apdo.:163-7179 Imperdiet Avenida';
 EXEC dbo.AddPaciente 2,'Daniel Perez',17,'496-3649 Nec Av.';
 EXEC dbo.AddPaciente 4,'Maria Casas',25,'331-5216 Nonummy C/';
 EXEC dbo.AddPaciente 5,'Juan Cazani',58,'9893 Lorem, C.';
-EXEC dbo.AddPaciente 5,'Luis Guillen',42,'Apartado núm.: 155, 6615 Quam. C/';
+EXEC dbo.AddPaciente 5,'Luis Guillen',42,'Apartado nÃºm.: 155, 6615 Quam. C/';
 EXEC dbo.AddPaciente 5,'Jose Giraldo',52,'452-3649 Nec Av.';
 
 -- PACIENTE (paciente_id, medico_id, direccion)
@@ -45,26 +45,26 @@ SELECT * FROM paciente;
 
 
 
--- COMPAÑIA FARMACEUTICA 
+-- COMPAÃ‘IA FARMACEUTICA 
 --ingresar (nombre, telefono)
-EXEC AddCompFarm 'Química Suiza S.A.',2114000;
+EXEC AddCompFarm 'QuÃ­mica Suiza S.A.',2114000;
 EXEC AddCompFarm'Lansier',3328302;
 EXEC AddCompFarm 'Hersil S.A',7133333;
 EXEC AddCompFarm 'Hospira',2114034;
-EXEC AddCompFarm 'Grünenthal Peruana',2241727;
+EXEC AddCompFarm 'GrÃ¼nenthal Peruana',2241727;
 EXEC AddCompFarm 'DUBONP S.A.',2211588;
 EXEC AddCompFarm 'Bayer S.A.',2113800;
 EXEC AddCompFarm 'TECNOFARMA',70003000;
 EXEC AddCompFarm 'Genomma Lab',554300;
 
---Si la compañia Farmaceutica con id 9 quiere cambiar de nombre y actualizar su numero de telefono
+--Si la compaÃ±ia Farmaceutica con id 9 quiere cambiar de nombre y actualizar su numero de telefono
 EXEC ModifyCompFarm 9,'Laboratorio Genomma',927395123;
---Modificar compañia Farmaceutica con id erronero
-EXEC ModifyCompFarm 50,'Química Suiza S.A.',927395123;
+--Modificar compaÃ±ia Farmaceutica con id erronero
+EXEC ModifyCompFarm 50,'QuÃ­mica Suiza S.A.',927395123;
 
---eliminar compañia Farmaceutica con id 10
+--eliminar compaÃ±ia Farmaceutica con id 10
 EXEC DeleteCompFarm 10;
---eliminar compañia Farmaceutica con id erroneo
+--eliminar compaÃ±ia Farmaceutica con id erroneo
 EXEC DeleteCompFarm 90;
 
 SELECT * FROM companiaF;
@@ -84,21 +84,21 @@ EXEC AddMedicamento 4, 'Metformina','Comprimido';
 EXEC AddMedicamento 5, 'Glimepirida','Comprimido';
 EXEC AddMedicamento 5, 'Metformina + rosiglitazona','Comprimido';
 EXEC AddMedicamento 6, 'Repaglinida','Comprimido';
-EXEC AddMedicamento 7, 'Tocoferol','Cápsula blanda';
-EXEC AddMedicamento 7, 'Retinol','Cápsula blanda';
+EXEC AddMedicamento 7, 'Tocoferol','CÃ¡psula blanda';
+EXEC AddMedicamento 7, 'Retinol','CÃ¡psula blanda';
 EXEC AddMedicamento 7, 'Warfarina','Comprimido';
-EXEC AddMedicamento 8, 'Heparina sódica','Inyectable';
-EXEC AddMedicamento 3, 'Metoclopramida','Líquido oral';
+EXEC AddMedicamento 8, 'Heparina sÃ³dica','Inyectable';
+EXEC AddMedicamento 3, 'Metoclopramida','LÃ­quido oral';
 EXEC AddMedicamento 9, 'Paracetamol','Capsula Blanda';
 
---id compañia, nombre, nueva formula
+--id compaÃ±ia, nombre, nueva formula
 EXEC ModifyMedicamento 3,'Metoclopramida','Inyectable';
---Modificando un medicamento de una compañia que no existe
+--Modificando un medicamento de una compaÃ±ia que no existe
 EXEC ModifyMedicamento 50,'Metoclopramida','Meta','Inyectable';
 
---Eliminando un medicamento con id compañia 3 y nombrecomercial Meta
+--Eliminando un medicamento con id compaÃ±ia 3 y nombrecomercial Meta
 EXEC DeleteMedicamento 3,'Meta';
---Eliminando un medicamento con id compañia inexistente
+--Eliminando un medicamento con id compaÃ±ia inexistente
 EXEC DeleteMedicamento 30,'Meta';
 
 SELECT * FROM MEDICAMENTO;
@@ -132,7 +132,7 @@ SELECT * FROM farmacia;
 
 
 
--- CONTRATO (compañiaf_id,farmacia_id,fechainicio,fechafin,texto, nombresupervisor)
+-- CONTRATO (compaÃ±iaf_id,farmacia_id,fechainicio,fechafin,texto, nombresupervisor)
 EXEC AddContrato 4, 2, '01-03-2015', '01-01-2021', 'TextoA','Flynn D. Silva';
 EXEC AddContrato 5, 1, '01-06-2013', '05-12-2021', 'TextoA','Mona Wilkins';
 EXEC AddContrato 7, 5, '02-12-2015', '04-01-2024', 'TextoC','Jade H. Bray';
@@ -167,7 +167,7 @@ SELECT * FROM contrato;
 -- Ingresar FARMACIA_ssn,COMPANIA_SSN,Medicam_nombre,CANTIDAD,PRECIO
 EXEC AddStock 1,5,'Glimepirida',600,5;
 EXEC AddStock 5,7,'Retinol',100,15;
-EXEC AddStock 7,8,'Heparina sódica',180,5;
+EXEC AddStock 7,8,'Heparina sÃ³dica',180,5;
 EXEC AddStock 2,1,'Fluoruro de sodio',100,12;
 EXEC AddStock 3,1,'Fluoruro de sodio',200,15;
 EXEC AddStock 4,1,'Fluoruro de sodio',900,15;
@@ -177,9 +177,9 @@ EXEC AddStock 1,2,'Sucralfato',15,10;
 EXEC AddStock 1,6,'Repaglinida',100,1;
 EXEC AddStock 1,3,'Domperidona',900,17;
 EXEC AddStock 1,4,'Metformina',800,18;
-EXEC AddStock 1,8,'Heparina sódica',800,20;
+EXEC AddStock 1,8,'Heparina sÃ³dica',800,20;
 
---Ingresando un nuevo stock a una farmacia y compañia farmaceutica que no tienen contrato
+--Ingresando un nuevo stock a una farmacia y compaÃ±ia farmaceutica que no tienen contrato
 EXEC AddStock 7,5,'Glimepirida',100,15;
 
 --Modificando el STOCK 
@@ -229,7 +229,7 @@ SELECT *FROM VENTA;
 
 -- LINEA DE VENTA 
 --Ingresar
---ventaID,farmaciaID,CompañiaID,NombreComercial,stockID, PrecioLV, cannt
+--ventaID,farmaciaID,CompaÃ±iaID,NombreComercial,stockID, PrecioLV, cannt
 EXEC addLineaVentas 9,1,2,'Sucralfato',9,10,2;
 EXEC addLineaVentas 1,1,6,'Repaglinida',11,17,2;
 EXEC addLineaVentas 2,2,1,'Fluoruro de sodio',4,12,2;
@@ -258,7 +258,7 @@ select *from LineaVenta;
 
 
 
--- RECETA (medico_id, paciente_id, nombrecomercial, compañiaf_id, fecha, cantidad)
+-- RECETA (medico_id, paciente_id, nombrecomercial, compaÃ±iaf_id, fecha, cantidad)
 --Registar Receta
 EXEC AddReceta 2,1,'Glimepirida',5, 2;
 EXEC AddReceta 3,2,'Tocoferol',7, 1;
@@ -274,61 +274,3 @@ EXECUTE DeleteReceta 2,1,'Glimepirida',5;
 SELECT * FROM receta;
 
 
-
-
---Dada una farmacia, mostrar la información de sus contratos. 
-DECLARE 
-    c_codigofarmacia contrato.Farmacia_ssn%TYPE := &codigo;
-BEGIN
-    mostrarDatos_ops.mostrarContratosFarmacia(c_codigofarmacia);
-END;
-
-
-
---Dada una compañia farmaceutica, mostrar la información de sus contratos. (tabla contratos)
-DECLARE 
-    c_codigocompannia contrato.compania_ssn%TYPE := &codigo;
-BEGIN
-    mostrardatos_ops.mostrarcontratoscompañia(c_codigocompannia);
-END;
-
-
-
-
---Dada una compañía farmacéutica, mostrar la lista sus medicamentos.(tabla stock)
-DECLARE 
-    s_codigocomp stock.compania_ssn%TYPE := &codigo;
-BEGIN
-     mostrarDatos_ops.mostrarMedicamentosCompañia(s_codigocomp);
-END;
-
-
-
-
---Dada una farmacia, mostrar la lista de sus medicamentos junto con la compañía farmacéutica a la que pertenecen. (tabla stock)
-DECLARE 
-    s_farmacodigo stock.Farmacia_ssn%TYPE := &codigo;
-BEGIN
-     mostrarDatos_ops.mostrarFMC( s_farmacodigo);
-END;
-
-
-
-
- --Dada una farmacia, mostrar sus ventas y sus totales por cada venta (por periodo de tiempo). (tabla ventas)
- -- probar con codigo 1200 para la farmaci_id
-DECLARE 
-    v_farmacodigo venta.Farmacia_ssn%TYPE := &codigo;
-BEGIN
-     mostrarDatos_ops.mostrarventasfarmacia( v_farmacodigo);
-END;
-
-
-
-
---Dado un paciente, mostrar sus recetas registradas. (tabla recetas)
-DECLARE 
-    r_paccodigo Receta.Paciente_id%TYPE := &codigo;
-BEGIN
-     mostrarDatos_ops.mostrarRecetasPaciente(r_paccodigo);
-END;
