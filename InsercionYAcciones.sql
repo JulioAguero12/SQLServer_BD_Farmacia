@@ -1,4 +1,4 @@
--- MEDICO
+-- MEDICO 
 EXEC dbo.addMedico 'Filino de Cos', 'Neurologia',5;
 EXEC dbo.addMedico 'Calcideo', 'Traumatologia',4;
 EXEC dbo.addMedico 'Calímaco', 'Neurologia',7;
