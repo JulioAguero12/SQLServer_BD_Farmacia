@@ -109,5 +109,5 @@ CREATE TABLE LineaVenta(
    CONSTRAINT VentaFK FOREIGN KEY(Venta_codigo,Farmacia_ssn) REFERENCES Venta(Venta_codigo,Farmacia_ssn) ON DELETE CASCADE,
    CONSTRAINT MedicamentFK FOREIGN KEY(Compania_ssn,Medicam_nombre) REFERENCES Medicamento(Compania_ssn,Medicam_nombre) ON DELETE CASCADE,
    CONSTRAINT StockFK FOREIGN KEY(Stock_id,LineaVenta_precio) REFERENCES Stock(Stock_id,Stock_precio) ON DELETE NO ACTION
-);
+); 
 
