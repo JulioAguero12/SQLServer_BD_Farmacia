@@ -13,7 +13,7 @@ close Cursor1
 --liberar la memoria
 deallocate Cursor1
 
----------------------------------------------------------------
+----------------------------------------------------------------
 
 --MOSTRANDO TODOS LOS DATOS DE LA TABLA FARMACIA
 go
@@ -77,7 +77,7 @@ deallocate mostrarFarmacia
 
 ---------------------------------------------------------------
 
---MOSTRAR una farmacia, mostrar la información de sus contratos. 
+--MOSTRAR una farmacia, mostrar la informaciÃ³n de sus contratos. 
 
 Declare
 	@conttext   varchar(1000),
@@ -102,14 +102,14 @@ deallocate mostrarcontratosfarmacia
 
 create or replace PACKAGE BODY mostrarDatos_ops AS
 
-    --Dada una farmacia, mostrar la información de sus contratos. 
+    --Dada una farmacia, mostrar la informaciÃ³n de sus contratos. 
     PROCEDURE mostrarcontratosfarmacia (
         m_farmaid contrato.farmacia_ssn%TYPE
     ) AS
         CURSOR farma_contrato IS
         SELECT
             f.farmacia_nombre          AS farma,
-            c.compania_nombre          AS compañia,
+            c.compania_nombre          AS compaÃ±ia,
             t.contrato_fechaini        AS inicio,
             t.contrato_fechafin        AS fin,
             t.contrato_texto           AS text,
@@ -127,8 +127,8 @@ create or replace PACKAGE BODY mostrarDatos_ops AS
         FOR fc IN farma_contrato LOOP
             dbms_output.put_line('la farmacia '
                                  || fc.farma
-                                 || ' tiene contrato la compañia '
-                                 || fc.compañia
+                                 || ' tiene contrato la compaÃ±ia '
+                                 || fc.compaÃ±ia
                                  || ', Fecha Inicial-> '
                                  || fc.inicio
                                  || ', Fecha Final-> '
@@ -141,14 +141,14 @@ create or replace PACKAGE BODY mostrarDatos_ops AS
     END mostrarcontratosfarmacia;
     
 
-    --Dada una compañia farmaceutica, mostrar la información de sus contratos. (tabla contratos)
-    PROCEDURE mostrarcontratoscompañia (
+    --Dada una compaÃ±ia farmaceutica, mostrar la informaciÃ³n de sus contratos. (tabla contratos)
+    PROCEDURE mostrarcontratoscompaÃ±ia (
         m_compaid contrato.compania_ssn%TYPE
     ) AS
         CURSOR compa_contrato IS
         SELECT
             f.farmacia_nombre              AS farma,
-            c.compania_nombre              AS compañia,
+            c.compania_nombre              AS compaÃ±ia,
             t.contrato_fechaini            AS inicio,
             t.contrato_fechafin            AS fin,
             t.contrato_texto               AS text,
@@ -164,8 +164,8 @@ create or replace PACKAGE BODY mostrarDatos_ops AS
 
     BEGIN
         FOR fc IN compa_contrato LOOP
-            dbms_output.put_line('La Compañia Farmaceutica '
-                                 || fc.compañia
+            dbms_output.put_line('La CompaÃ±ia Farmaceutica '
+                                 || fc.compaÃ±ia
                                  || ' tiene contrato la Farmacia '
                                  || fc.farma
                                  || ', Fecha Inicial-> '
@@ -177,15 +177,15 @@ create or replace PACKAGE BODY mostrarDatos_ops AS
                                  || ', Supervisor-> '
                                  || fc.super);
         END LOOP;
-    END mostrarcontratoscompañia;
+    END mostrarcontratoscompaÃ±ia;
     
 
-    --Dada una compañía farmacéutica, mostrar la lista sus medicamentos.(tabla medicamento)
-    PROCEDURE mostrarmedicamentoscompañia (
+    --Dada una compaÃ±Ã­a farmacÃ©utica, mostrar la lista sus medicamentos.(tabla medicamento)
+    PROCEDURE mostrarmedicamentoscompaÃ±ia (
         s_compid medicamento.compania_ssn%TYPE
     ) AS
 
-        CURSOR compañia_medicamento IS
+        CURSOR compaÃ±ia_medicamento IS
         SELECT
             c.compania_nombre   AS nombre,
             m.medicam_nombre    AS nombrecomercial
@@ -196,16 +196,16 @@ create or replace PACKAGE BODY mostrarDatos_ops AS
             m.compania_ssn = s_compid
             AND c.compania_ssn = m.compania_ssn;
     BEGIN
-        FOR a IN compañia_medicamento LOOP
-            dbms_output.put_line('La Compañia Farmaceutica '
+        FOR a IN compaÃ±ia_medicamento LOOP
+            dbms_output.put_line('La CompaÃ±ia Farmaceutica '
                                  || a.nombre
                                  || ' produce el medicamento-> '
                                  || a.nombrecomercial);
         END LOOP;
-    END mostrarmedicamentoscompañia;
+    END mostrarmedicamentoscompaÃ±ia;
 
 
-    --Dada una farmacia, mostrar la lista de sus medicamentos junto con la compañía farmacéutica a la que pertenecen. (tabla stock)
+    --Dada una farmacia, mostrar la lista de sus medicamentos junto con la compaÃ±Ã­a farmacÃ©utica a la que pertenecen. (tabla stock)
     PROCEDURE mostrarfmc (
         s_farmaid stock.farmacia_ssn%TYPE
     ) AS
@@ -213,7 +213,7 @@ create or replace PACKAGE BODY mostrarDatos_ops AS
         CURSOR farmamedicomp IS
         SELECT
             f.farmacia_nombre  AS farma,
-            c.compania_nombre  AS compañia,
+            c.compania_nombre  AS compaÃ±ia,
             s.medicam_nombre   AS ncomer
         FROM
             farmacia                f,
@@ -230,8 +230,8 @@ create or replace PACKAGE BODY mostrarDatos_ops AS
                                  || a.farma
                                  || ' tiene el medicamento '
                                  || a.ncomer
-                                 || ' de la Compañia Farmaceutica '
-                                 || a.compañia);
+                                 || ' de la CompaÃ±ia Farmaceutica '
+                                 || a.compaÃ±ia);
         END LOOP;
     END mostrarfmc;
 
