@@ -25,7 +25,7 @@ AS
    RAISERROR (@Message, @Severity, @State)
   END CATCH
 GO
-------------------------------------------------------------------
+-------------------------------------------------------------------
 CREATE OR ALTER PROCEDURE dbo.DeleteCompFarm
                    @f_comp_id  INTEGER
 AS
